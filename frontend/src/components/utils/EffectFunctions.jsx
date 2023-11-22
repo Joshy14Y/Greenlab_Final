@@ -66,3 +66,4 @@ export const handleInputChange = (fieldName, setState) => (e) => {
 export const formatItemData = (item) => ({
   ...item, date: moment(item.date).format('YYYY-MM-DD'),
 });
+

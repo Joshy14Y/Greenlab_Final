@@ -11,6 +11,7 @@ import {
 import { GroCCForm, formLinks } from "../forms/AnalisysForms";
 import { FormButtons } from "../forms/ElementInputs";
 import DataTable from "../forms/DataTable";
+import { GroundVerification } from "../utils/global.js";
 
 const GroundCC = () => {
   // Estructura predeterminada para los datos de análisis
@@ -89,11 +90,15 @@ const GroundCC = () => {
     await handleDelete(API_URL, id, () => fetchData(API_URL, setAnalisys));
   };
 
-  // Función para manejar el envío del formulario
-  const handleSubmit = (e) => {
-    e.preventDefault();
+// Función para manejar el envío del formulario
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (GroundVerification(actualAnalisys)) {
     gccHandleAddEditItem(actualAnalisys);
-  };
+  } else {
+    console.error("Ground analysis parameters are not within the specified range");
+  }
+};
 
   return (
     <>

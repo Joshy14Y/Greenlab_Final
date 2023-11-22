@@ -14,6 +14,7 @@ import Register from './components/pages/Register.jsx';
  const routing = (
 <BrowserRouter>
   <Routes>
+  <Route exact path="/" element={<Login/>}/>
     <Route exact path="/login" element={<Login/>}/>
     <Route exact path="/registro" element={<Register/>}/>
     <Route exact path="/analisis/suelos/qc" element={<GroundCC/>}/>
